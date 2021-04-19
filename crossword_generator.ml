@@ -39,7 +39,7 @@ let rec trunc n =
         | a -> a in
     function
         | V -> V
-        | N(x,_,fd) when (n=0)&(x!='~') -> help (trunc n fd)
+        | N(x,_,fd) when (n=0)&&(x!='~') -> help (trunc n fd)
         | N(x,fg,fd) -> help (N(x,trunc (n-1) fg,trunc n fd));;
 
 
@@ -87,3 +87,4 @@ let run d =
     | c -> fill (i,j-1,add_char s c j,term c ag,(term c (hd (rev fah)))::(suppr fah))) lex
 in 
 fill (d, d, "", trunc d dico, trunc d dico::[]);;
+
